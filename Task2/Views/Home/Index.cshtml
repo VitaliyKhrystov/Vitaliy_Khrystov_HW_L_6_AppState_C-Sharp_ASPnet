@@ -1,0 +1,24 @@
+﻿@model CookieData
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    @if (ViewBag.CookieValue == null)
+    {
+             <form method="post" asp-action="Index" asp-controller="Home">
+            <label asp-for="Value"/> <br />
+            <input type="text" asp-for="Value" /><br />
+            <span asp-validation-for="Value" style="color:red;"></span> <br />
+
+            <label asp-for="Date"/> <br />
+            <input type="datetime-local" asp-for="Date" /><br />
+            <span asp-validation-for="Date" style="color:red;"></span> <br /><br />
+
+            <input type="submit" value="Click"/>
+        </form>
+    } else{
+            <h1>Cookie value: @ViewBag.CookieValue</h1>
+    }
+   
+</div>

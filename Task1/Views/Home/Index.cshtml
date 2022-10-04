@@ -1,8 +1,20 @@
-﻿@{
+﻿@model string
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    @if (Model == null)
+    {
+        <form method="post" action="Home/GetName">
+           <label>Name:</label> <br />
+           <input type="text" name="name"/><br /><br />
+           <input type="submit" />
+       </form>
+    }else
+    {
+        <h1>Hello @Model</h1>
+        <h2>Visitors: @ViewBag.Count</h2>
+    }
+    
 </div>
